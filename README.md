@@ -1,258 +1,116 @@
-# Consistency Tracker (Habit Tracking App)
+# Habit Tracker
 
-A full-stack Habit Tracking Application built using the MERN stack (MongoDB, Express, React, Node.js) that helps users build consistency by tracking daily habits and visualizing progress through an interactive dashboard.
-
-
-### Live Demo:
-
-Live URL: [Live](https://habit-tracker-frontend-kwoj.onrender.com/)
-
-GitHub Repositor: 
-- [Frontend](https://github.com/RamitRoshan/habit-tracker/tree/main/frontend) 
-- [Backend](https://github.com/RamitRoshan/habit-tracker/tree/main/backend)
-
----
+A full-stack **Habit Tracking** web application built with the **MERN Stack** (MongoDB, Express.js, React.js, Node.js). It enables users to create and manage daily habits, monitor completion streaks, and visualize their progress through an interactive dashboard.
 
 ## Features
 
-### Authentication
-- User Registration
-- User Login
-- Secure password hashing using bcrypt
-- JWT based authentication
-- Protected routes
+* Secure user authentication using JWT
+* User registration and login
+* Create, update, and delete habits
+* Track daily habit completion
+* Prevent duplicate daily entries
+* Dashboard with streaks and completion statistics
+* Progress visualization using charts
+* Responsive and user-friendly interface
 
-### Habit Management
-- Create habits
-- Edit habits
-- Delete habits
-- View all habits
-
-Each habit contains:
-- Title
-- Description
-- Created date
-
-### Daily Tracking
-- Mark habit as completed
-- Prevent multiple completion in same day
-- View completion history
-
-### Progress Dashboard
-- Current streak calculation
-- Completion percentage
-- Weekly progress chart
-- Visual progress insights
-
-### User Experience
-- Responsive design
-- Clean UI
-- Loading states
-- Error handling
-
----
-
-## 🛠 Tech Stack
+## Tech Stack
 
 ### Frontend
-- React.js
-- Tailwind CSS
-- Axios
-- Chart Library (Recharts / Chart.js)
+
+* React.js
+* Tailwind CSS
+* Axios
+* Recharts
 
 ### Backend
-- Node.js
-- Express.js
-- JWT Authentication
-- bcrypt (Password Hashing)
+
+* Node.js
+* Express.js
+* JWT Authentication
+* bcrypt
 
 ### Database
-- MongoDB (Mongoose ODM)
 
-### Deployment
-
-1. Frontend: Render
-2. Backend: Render
-3. Database: MongoDB Atlas
+* MongoDB Atlas
+* Mongoose
 
 ---
 
-## Project Architecture
+## Project Structure
 
-### Backend Structure
 ```
-backend/
+habit-tracker/
+├── backend/
+│   ├── src/
+│   │   ├── config/
+│   │   ├── controllers/
+│   │   ├── middleware/
+│   │   ├── models/
+│   │   ├── routes/
+│   │   └── server.js
+│   └── package.json
 │
-├── src/
-│   │
-│   ├── config/
-│   │   └── db.js
-│   ├── controllers/
-│   │   ├── authController.js
-|   |   ├── dashboardController.js
-│   │   ├── habitController.js
-│   │   └── logController.js
-│   │
-│   ├── models/
-│   │   ├── User.js
-│   │   ├── Habit.js
-│   │   └── HabitLog.js
-│   │
-│   ├── routes/
-│   │   ├── authRoutes.js
-|   |   ├── dashboardRoutes.js
-│   │   ├── habitRoutes.js
-│   │   └── logRoutes.js
-│   │
-│   ├── middleware/
-│   │   └── authMiddleware.js
-│   │
-│   ├── .env
-│   │
-│   └── server.js
-```
-
-### Frontend Structure
-
-```
-frontend/
+├── frontend/
+│   ├── src/
+│   │   ├── api/
+│   │   ├── components/
+│   │   ├── context/
+│   │   ├── pages/
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   └── package.json
 │
-├── src/
-│   ├── api/
-│   │   └── axios.js
-│   ├── pages/
-│   │   ├── Login.jsx
-│   │   ├── Register.jsx
-│   │   ├── HabitPage.jsx
-│   │   └── Dashboard.jsx
-│   │
-│   ├── components/
-│   │   ├── HabitCard.jsx
-│   │   ├── Navbar.jsx
-│   │   ├── PrivateRoute.jsx
-│   │   └── ProgressChart.jsx
-│   │
-│   ├── context/
-│   │   └── AuthContext.jsx
-│   ├── main.jsx
-│   └── App.jsx
+└── README.md
 ```
 
----
+## Installation
 
-## Database Schema
+### Clone the repository
 
-
-```
-- User Schema
-
-name: String
-email: String (unique)
-password: String (hashed)
-createdAt: Date
-
-
-- Habit Schema
-
-userId: ObjectId
-title: String
-description: String
-createdAt: Date
-
-
-- Tracking Schema
-
-userId: ObjectId
-habitId: ObjectId
-date: Date
-completed: Boolean
-
-```
-
----
-
-### **Installation and Setup**
-
-**Clone Repository**
-```
-git clone https://github.com/yourusername/habit-tracker.git
+```bash
+git clone https://github.com/FahadHassan07/habit-tracker.git
 cd habit-tracker
 ```
 
-**Backend Setup**
+### Backend Setup
 
-```
+```bash
 cd backend
 npm install
-nodemon server.js
 ```
 
-**Create .env file:**
-```
-PORT= 3030
+Create a `.env` file:
+
+```env
+PORT=3030
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_secret_key
 ```
 
-**Run backend:**
+Start the backend:
 
-> npm start
-
- 
-**Frontend Setup**
+```bash
+npm start
 ```
+
+### Frontend Setup
+
+```bash
 cd frontend
 npm install
 npm run dev
 ```
----
 
-## Authentication Flow
+## Authentication
 
-- User registers
-- Password is hashed using bcrypt
-- User logs in
-- JWT token is generated
-- Token is used to access protected routes
+* Passwords are securely hashed using bcrypt.
+* JWT is used for authentication and authorization.
+* Protected routes restrict access to authenticated users.
 
-## Security Features
+## Future Improvements
 
-- Password hashing
-- JWT authentication
-- Protected routes
-- Error handling
-- User-specific data protection
-
----
-
-## Assignment Requirements Status
-```
-Requirement	                    Status
-User Authentication         	Completed
-Habit CRUD Operations	        Completed
-Daily Tracking	                Completed
-Dashboard with Progress Chart	Completed
-MongoDB Database Integration	Completed
-REST API Implementation	        Completed
-Secure Authentication	        Completed
-Frontend Integration	        Completed
-
-```
-**All mandatory assignment requirements are successfully implemented.**
-
- 
-
-**Conclusion:**
-This project successfully implements a full-stack habit tracking system with secure authentication, habit management, daily tracking, and progress visualization using modern web technologies.
-
-<hr>
-
-### 👨‍💻 Author
-
-    ~ Ramit Roshan 💖
-    
-GitHub: https://github.com/RamitRoshan
-
-
-
-
+* Email verification
+* Habit reminders and notifications
+* Calendar view
+* Dark mode
+* Social login
